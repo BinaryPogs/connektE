@@ -1,6 +1,40 @@
 {% extends 'base/main.html' %}
+{% load static %}
 {% block content %}
 
+<main>
+
+
+    <section id="form-container">
+        <img id="logo" src="{% static 'images/chat-icon.png' %}">        
+
+        <div>
+            <h1>Welcome to connektE</h1>
+            <p>A group video calling application just for you!</p>
+        </div>
+
+        <form id="form">
+            <div class="form-field">
+                <input type="submit" value="Join Stream" />
+            </div>
+        </form>
+
+    </section>
+
+</main>
+
+<script type="text/javascript">
+    let form = document.getElementById('form')
+    // handle form behaviour
+    let handleSubmit = async (e) => {
+        // prevent default form behaviour
+        e.preventDefault()
+        // open window, '_self' means don't open new tab, change current url
+        window.open('/room/', '_self')
+    }
+    // trigger handlesubmit whenever form is submitted
+    form.addEventListener('submit', handleSubmit)
+</script>
 <h2>Lobby</h2>
 
 {% endblock content %}
